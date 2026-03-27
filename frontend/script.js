@@ -1,3 +1,5 @@
+console.log("NEW VERSION LOADED 🚀")
+
 const BASE_URL = "https://taskflow-backend.onrender.com"
 
 // SIGNUP
