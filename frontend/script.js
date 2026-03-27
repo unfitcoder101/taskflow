@@ -1,5 +1,3 @@
-const PORT = process.env.PORT || 3000
-
 const BASE_URL = "https://taskflow-backend.onrender.com"
 
 // SIGNUP
