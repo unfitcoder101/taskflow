@@ -10,9 +10,9 @@ const {
   updateTask
 } = require("../controllers/taskController")
 
-router.get("/", auth, getTasks)
-router.post("/", auth, createTask)
-router.delete("/:id", auth, deleteTask)
-router.patch("/:id", auth, updateTask)
+router.get("/",getTasks)
+router.post("/", createTask)
+router.delete("/:id",deleteTask)
+router.patch("/:id", updateTask)
 
 module.exports = router

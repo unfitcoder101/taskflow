@@ -1,20 +1,25 @@
 const express = require("express")
+const cors = require("cors")
+const mongoose = require("mongoose")
 
 const app = express()
 
-const PORT = process.env.PORT || 3000
-
-const cors = require("cors")
 app.use(cors())
+app.use(express.json())
+
+// ✅ ROUTES IMPORT
 const authRoutes = require("./routes/auth")
 const taskRoutes = require("./routes/tasks")
 
-app.use(express.json())
-
+// ✅ ROUTES USE
 app.use("/auth", authRoutes)
 app.use("/tasks", taskRoutes)
 
-const mongoose = require("mongoose")
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT,()=>{
+  console.log(`Server running on port ${PORT}`)
+})
 
 mongoose.connect("mongodb+srv://harshvardhan1362004_db_user:harsh@cluster0.s8rmx6t.mongodb.net/taskDB?retryWrites=true&w=majority")
 .then(() => {
@@ -33,10 +38,6 @@ app.use((req,res,next)=>{
 
 app.get("/", (req,res)=>{
   res.send("Task API is running")
-})
-
-app.listen(PORT,()=>{
-  console.log(`Server running on port ${PORT}`)
 })
 
 app.use((req,res,next)=>{
