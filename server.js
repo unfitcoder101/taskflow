@@ -4,6 +4,10 @@ const mongoose = require("mongoose")
 
 const app = express()
 
+app.get("/debug", (req,res)=>{
+  res.send("DEBUG WORKING")
+})
+
 // ✅ MIDDLEWARE FIRST
 app.use(cors())
 app.use(express.json())
